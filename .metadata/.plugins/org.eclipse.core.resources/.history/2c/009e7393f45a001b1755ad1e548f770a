@@ -1,0 +1,55 @@
+import java.util.Arrays;
+
+public class StudentUtil {
+
+    public static double[] calculateGPA(int[] studentIdList, char[][] studentsGrades) {
+        
+    	double[] studentGpa = new double[studentIdList.length];
+        double gpa = 0;
+        int count = 0;
+        
+    	for(char[] grades : studentsGrades) {
+    		
+    		for(char grade : grades ) {
+    			if(grade == 'A') {
+    				
+    				gpa += 4;
+    			}
+    			
+    			else if(grade == 'B') {
+    				
+    				gpa +=3;
+    			}
+    			
+    			else {
+    				gpa +=2;
+    			}
+    		}
+    		double calGpa = gpa/grades.length;
+    		
+    		studentGpa[count] = calGpa;
+    		
+    		count +=1;
+    	}
+        
+    	return studentGpa;
+    }
+    
+    public static int[] getStudentsByGPA(double lower, double higher, int[] studentIdList, char[][] studentsGrades) {
+        // perform parameter validation. Return null if passed parameters are not valid
+        
+        // invoke calculateGPA
+        
+        // construct the result array and return it. You would need an extra for loop to compute the size of the resulting array
+    }
+    
+    public static void main(String[] args) {
+    	
+    	int[] studentIdList = {1001, 1002};
+    	char[][] studentsGrades = {{'A','A','A','B'}, {'A','B','B'},{'A','B','C'}};
+    	
+    	double[] studentGpa = calculateGPA(studentIdList, studentsGrades);
+    	
+    	System.out.println(Arrays.toString(studentGpa));
+    }
+}
